@@ -1,0 +1,17 @@
+<!doctype html>
+<html lang="en">
+  {% include head.html %}
+  <body>
+    <div class="demo-blog mdl-layout mdl-js-layout has-drawer is-upgraded">
+      <!--{% include header.html %}-->
+      <main class="mdl-layout__content">
+        {{ content }}
+        {% include mega-footer.html %}
+      </main>
+    </div>
+
+    {% include scripts.html %}
+
+    {% include google-analytics.html %}
+  </body>
+</html>

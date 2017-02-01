@@ -102,6 +102,22 @@ gulp.task('styles', () => {
     .pipe(gulp.dest('.tmp/styles'));
 });
 
+// Build MDL scss and js files
+gulp.task('mdl', () => {
+  return exec('gulp --gulpfile material-design-lite/gulpfile.babel.js',
+    (error, stdout, stderr) => {
+      if (!error) {
+        console.log(stdout);
+        gulp.src('material-design-lite/dist/*.min.js')
+          .pipe(gulp.dest('app/scripts'));
+        gulp.src('material-design-lite/dist/*.min.css')
+          .pipe(gulp.dest('app/styles'));
+      } else {
+        console.error(error);
+      }
+    });
+});
+
 // Concatenate and minify JavaScript. Optionally transpiles ES2015 code to ES5.
 // to enable ES2015 support remove the line `"only": "gulpfile.babel.js",` in the
 // `.babelrc` file.
